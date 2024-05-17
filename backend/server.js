@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors"
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import routes from "./routes/routes.js";
@@ -6,6 +7,11 @@ import bodyparser from 'body-parser'
 import { errorHandler } from "./middleware/errorHandler.js"
 
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
